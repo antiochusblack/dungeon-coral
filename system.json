@@ -2,7 +2,7 @@
   "id": "dcc-crawler-forge",
   "title": "Dungeon Crawler Carl \u2014 Crawler Forge",
   "description": "Independent DCC v14 system with crawler, adversary and companion sheets; combat, advancement, crafting and dungeon tools.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "compatibility": {
     "minimum": "14",
     "verified": "14",
@@ -54,5 +54,8 @@
   },
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "mana",
-  "license": "LICENSE.txt"
+  "license": "LICENSE.txt",
+  "url": "https://github.com/antiochusblack/dungeon-coral",
+  "manifest": "https://raw.githubusercontent.com/antiochusblack/dungeon-coral/main/system.json",
+  "download": "https://github.com/antiochusblack/dungeon-coral/releases/download/v0.2.1/DCC-Crawler-Forge-v0.2.1.zip"
 }

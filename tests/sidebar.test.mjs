@@ -1,0 +1,8 @@
+import {test,beforeEach} from 'node:test';
+import assert from 'node:assert/strict';
+import {reset,inputs,fire} from './foundry-fixture.mjs';
+import {addContentImportButton} from '../scripts/sidebar.mjs';
+beforeEach(reset);
+function surface(){const nodes=[];const root={ownerDocument:{createElement:()=>({dataset:{},addEventListener(name,fn){this.click=fn;},remove(){nodes.splice(nodes.indexOf(this),1);}})},querySelector(selector){return selector==='[data-dcf-content-import]'?nodes[0]:selector==='.directory-header'?{append:n=>nodes.push(n)}:null;},prepend:n=>nodes.push(n)};return {root,nodes};}
+test('Journal sidebar hook adds one world importer and suppresses it for players',async()=>{const {root,nodes}=surface();await fire('renderJournalDirectory',{},root);await fire('renderJournalDirectory',{},root);assert.equal(nodes.length,1);assert.equal(nodes[0].textContent,'Import DCC game content');game.user.isGM=false;addContentImportButton({},root);assert.equal(nodes.length,0);addContentImportButton({},root);assert.equal(nodes.length,0);});
+test('sidebar import works without a character and restores button on cancel/error',async()=>{const {root,nodes}=surface();addContentImportButton({},root);const event={preventDefault(){},stopPropagation(){}};await nodes[0].click(event);assert.equal(game.actors.length,0);assert.equal(nodes[0].disabled,false);inputs.push({text:async()=>'{invalid'});let reported='';const original=ui.notifications.error;ui.notifications.error=m=>reported=m;try{await nodes[0].click(event);}finally{ui.notifications.error=original;}assert.match(reported,/Invalid JSON/);assert.equal(nodes[0].disabled,false);});

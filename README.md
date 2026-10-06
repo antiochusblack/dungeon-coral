@@ -1,4 +1,4 @@
-# Dungeon Crawler Carl — Crawler Forge 0.2.0
+# Dungeon Crawler Carl — Crawler Forge 0.2.1
 
 Independent Foundry VTT v14 system. System ID: `dcc-crawler-forge`.
 
@@ -8,18 +8,22 @@ Back up your world before updating. Extract the ZIP's `dcc-crawler-forge` folder
 
 This remains a separate system from other Dungeon Crawler Carl implementations. No migration from another system is supplied. Test this build in a copied or new v14 world first.
 
-Forge installation requires hosting the package and its manifest. Add a permanent `manifest` URL and release ZIP `download` URL to system.json, and include that same manifest in the hosted ZIP. Use that manifest URL in Forge's custom system installer. Automatic updates are not configured in this locally installable package.
+Forge installation requires hosting the package and its manifest. Add a permanent `manifest` URL and release ZIP `download` URL to system.json, and include that same manifest in the hosted ZIP. Use that manifest URL in Forge's custom system installer. This release includes the dungeon-coral main-branch manifest URL and v0.2.1 release ZIP URL. Upload system.json to main and the matching ZIP to release v0.2.1 before installing.
 
 ## Start here
 
 1. In Reference, use **Create starter crawler (GM)**. The sample includes Unarmed Combat, Fists, passive Heal, Endurance and Fabricate.
 2. Enter base and enhanced stats on Identity. Derived equipment bonuses, Mana maximum, slot strength, movement and DR update automatically.
-3. Import **DCC-Crawler-Forge-Private-Reference-v0.2.0.json** through the Reference tab as GM. This separate file contains your supplied source material; keep it private. Imports can be repeated without duplicating source records.
+3. Import **DCC-Crawler-Forge-Private-Reference-v0.2.0.json** through **Journals sidebar → Import DCC game content** as GM. This separate file contains your supplied source material; keep it private. Imports can be repeated without duplicating source records.
 4. Drop world Items onto actors. Edit weapons to link an owned skill, and configure damage dice and damage stat separately. Edit spells and skills to set their checks, action cost, cooldown and rank upgrades.
 5. Use Gear to equip items and select the ten Hotlist items. Slot and external-buff limits also apply to direct edits. Set flat and percentage bonuses explicitly on items.
 6. Use the Dungeon tools to start an encounter for scene tokens. The system's phase controls and **Next round** process actions, cleanup and the shared ten-second round clock. Use these controls rather than Foundry's standard next-round button.
 7. Roll from Skills, Magic or Combat. Select the target token before a targeted roll. Target damage/healing requires ownership; otherwise the GM applies it. Mob attacks announce attack difficulty for crawler reactions.
 8. Use Advancement for level awards, Stat-point claims, allocation, marked skill advancement and grinding; Crafting for projects, junk, work hours and bench requirements.
+
+## Changed in 0.2.1
+
+World content import now appears as a GM-only button in the Journals sidebar, including its popout. Character sheets retain their Reference browser. Concurrent imports are blocked. Installation and update URLs are included in system.json. The existing private v0.2.0 JSON remains compatible.
 
 ## Added in 0.2.0
 
@@ -51,7 +55,7 @@ The v14 manifest compatibility declaration is a target, not evidence of a live s
 
 ## Validation
 
-39 automated tests pass, covering derived statistics, native registration, all tab contexts, item constraints, action/Favor use, damage, shields, dying, conditions, advancement, companions, scrolls, cooldowns, reference imports, crafting calculations and table boundaries. These include mock integration tests; a live Foundry/Forge session is still needed. JavaScript syntax and ZIP integrity are checked separately.
+41 automated tests pass, covering derived statistics, native registration, all tab contexts, item constraints, action/Favor use, damage, shields, dying, conditions, advancement, companions, scrolls, cooldowns, reference imports, crafting calculations and table boundaries. These include mock integration tests; a live Foundry/Forge session is still needed. JavaScript syntax and ZIP integrity are checked separately.
 
 Run from the system folder: `node --test tests/*.test.mjs`.
 

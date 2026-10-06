@@ -7,7 +7,7 @@ import {applyDamage,heal,cleanupRound,nextRound} from './health.mjs';
 import {advanceSkill,sessionEnd,awardLevels,claimStatPoints,allocateStats,grind,distributeGrind,gainLevels,learnUntrained} from './advancement.mjs';
 import {commonItem,startCraft,workCraft,resolveCraft,enchantRisk} from './crafting.mjs';
 import {clockDialog,newFloor,lootMobs,completeQuest,popularity,encounterBuilder,companion,commandCompanion,partyCheck} from './dungeon.mjs';
-import {importReference,openReference,rollTable} from './reference.mjs';
+import {openReference,rollTable} from './reference.mjs';
 const {HandlebarsApplicationMixin}=foundry.applications.api;
 export class CrawlerSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2){
  static DEFAULT_OPTIONS={classes:['dcf','dcf-actor'],position:{width:940,height:860},window:{resizable:true},form:{submitOnChange:false,closeOnSubmit:false}};
@@ -62,7 +62,7 @@ export class CrawlerSheet extends HandlebarsApplicationMixin(foundry.application
  if(action==='common')return commonItem(a);if(action==='craft')return startCraft(a);if(action==='workCraft')return workCraft(a,b.dataset.id);if(action==='resolveCraft')return resolveCraft(a,b.dataset.id);if(action==='enchant')return enchantRisk(a,item);
  if(action==='clock')return clockDialog();if(action==='newFloor')return newFloor();if(action==='newScene'){if(!game.user.isGM)throw Error('GM only.');return setDungeon({sceneKey:foundry.utils.randomID()});}if(action==='loot')return lootMobs(a);if(action==='completeQuest')return completeQuest(a,item);if(action==='popularity')return popularity(a);if(action==='builder')return encounterBuilder();if(action==='partyCheck')return partyCheck();
  if(action==='companion')return companion(a);if(action==='openCompanion')return game.actors.get(b.dataset.id)?.sheet.render({force:true});if(action==='command')return commandCompanion(a,game.actors.get(b.dataset.id));
- if(action==='import')return importReference();if(action==='starter')return game.dccCrawlerForge.createStarter();
+ if(action==='starter')return game.dccCrawlerForge.createStarter();
  }
 }
 export class CrawlerItemSheet extends HandlebarsApplicationMixin(foundry.applications.sheets.ItemSheetV2){

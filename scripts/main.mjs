@@ -1,3 +1,4 @@
+import {addContentImportButton} from './sidebar.mjs';
 import {ID,TYPES,CONDITIONS} from './config.mjs';
 import {CrawlerModel,ItemModel} from './models.mjs';
 import {DCFActor,DCFItem} from './documents.mjs';
@@ -17,3 +18,5 @@ Hooks.once('init',()=>{
 });
 Hooks.on('updateSetting',setting=>{if(!setting.key?.startsWith(ID+'.'))return;for(const a of game.actors.contents)for(const sheet of Object.values(a.apps||{}))if(sheet.rendered)sheet.render({force:true});});
 Hooks.on('createActiveEffect',async effect=>{if(game.users.activeGM?.id!==game.user.id)return;const key=effectCondition(effect),config=CONDITIONS[key];if(!config||effect.flags?.[ID]?.appliedRound!=null)return;const s=stateFor(effect.parent);const data={condition:key,stacks:1,appliedRound:s.round,combatKey:s.combatKey,rest:config.rest||''};if(config.rounds)data.expiresAt=s.elapsed+config.rounds*10;if(config.seconds)data.expiresAt=s.elapsed+config.seconds;await effect.update({[`flags.${ID}`]:data});});
+
+Hooks.on('renderJournalDirectory',addContentImportButton);
