@@ -1,0 +1,58 @@
+{
+  "id": "dcc-crawler-forge",
+  "title": "Dungeon Crawler Carl \u2014 Crawler Forge",
+  "description": "Independent DCC v14 system with crawler, adversary and companion sheets; combat, advancement, crafting and dungeon tools.",
+  "version": "0.2.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14",
+    "maximum": "14"
+  },
+  "authors": [
+    {
+      "name": "Simon Stampfer"
+    }
+  ],
+  "esmodules": [
+    "scripts/main.mjs"
+  ],
+  "styles": [
+    "styles/system.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "crawler": {},
+      "adversary": {},
+      "companion": {}
+    },
+    "Item": {
+      "skill": {},
+      "spell": {},
+      "weapon": {},
+      "armour": {},
+      "gear": {},
+      "consumable": {},
+      "race": {},
+      "class": {},
+      "ability": {},
+      "achievement": {},
+      "quest": {},
+      "recipe": {},
+      "craftingTable": {}
+    }
+  },
+  "grid": {
+    "distance": 5,
+    "units": "ft"
+  },
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "mana",
+  "license": "LICENSE.txt"
+}

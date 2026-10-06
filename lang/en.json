@@ -1,0 +1,24 @@
+{
+  "TYPES": {
+    "Actor": {
+      "crawler": "Crawler",
+      "adversary": "Adversary",
+      "companion": "Companion"
+    },
+    "Item": {
+      "skill": "Skill",
+      "spell": "Spell",
+      "weapon": "Weapon",
+      "armour": "Armour",
+      "gear": "Gear",
+      "consumable": "Consumable",
+      "race": "Race",
+      "class": "Class",
+      "ability": "Ability",
+      "achievement": "Achievement",
+      "quest": "Quest",
+      "recipe": "Recipe",
+      "craftingTable": "Crafting Table"
+    }
+  }
+}
